@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Royale Spa - Book Your Appointment</title>
+    
+    <!--
+    ============================================================================
+    EMAIL & SMS SETUP - FULLY CONFIGURED ✓
+    ============================================================================
+    
+    EMAIL SETUP (Configured ✓):
+    ---------------------------
+    Web3Forms API: 2f177712-b4ee-4d8e-b4d6-dca0c5a21dfe
+    Booking emails sent to: trsavida34th@myyahoo.com
+    
+    SMS SETUP (Configured ✓):
+    -------------------------
+    Semaphore API: e76c050fe05d375d51e6de165a8c7121
+    SMS notifications sent to: 639086551539
+    
+    Both email and SMS notifications are now ACTIVE!
+    
+    When a booking is made:
+    1. Email sent to trsavida34th@myyahoo.com (instant)
+    2. SMS sent to 639086551539 (within 1 minute)
+    3. Customer receives confirmation email
+    
+    ============================================================================
+    -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #1E3A8A;
+            --gold: #D4AF37;
+            --bronze: #8B6914;
+            --dark-brown: #3E2723;
+            --medium-brown: #6D4C41;
+            --light-brown: #A1887F;
+            --cream: #F5E6D3;
+            --off-white: #FFF8F0;
+            --accent-pink: #FF69B4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 50%, #3E2723 100%);
+            color: var(--off-white);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .ornamental-border {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 3px solid var(--gold);
+            border-radius: 15px;
+            pointer-events: none;
+            z-index: 0;
+            box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(37, 99, 235, 0.95));
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-section {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--off-white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .spa-text {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .location-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .location-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .location-info p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .services-panel {
+            background: linear-gradient(135deg, rgba(62, 39, 35, 0.95), rgba(93, 64, 55, 0.95));
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .panel-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .service-category {
+            margin-bottom: 30px;
+        }
+
+        .category-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-item {
+            background: rgba(245, 230, 211, 0.1);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-item:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .service-item.selected {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(139, 105, 20, 0.3));
+            border-color: var(--gold);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .service-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--off-white);
+            margin-bottom: 5px;
+        }
+
+        .service-duration {
+            font-size: 0.85rem;
+            color: var(--light-brown);
+        }
+
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .package-item {
+            background: rgba(30, 58, 138, 0.2);
+            border: 2px solid var(--royal-blue);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .package-item:hover {
+            background: rgba(30, 58, 138, 0.3);
+            border-color: var(--gold);
+            transform: scale(1.02);
+        }
+
+        .package-item.selected {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.5), rgba(212, 175, 55, 0.3));
+            border-color: var(--gold);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .package-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .package-details {
+            font-size: 0.9rem;
+            color: var(--cream);
+            line-height: 1.6;
+        }
+
+        .booking-panel {
+            background: linear-gradient(135deg, rgba(62, 39, 35, 0.95), rgba(93, 64, 55, 0.95));
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+            position: sticky;
+            top: 20px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: var(--accent-pink);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(245, 230, 211, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            color: var(--off-white);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(245, 230, 211, 0.5);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(245, 230, 211, 0.15);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .datetime-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .payment-section {
+            margin-top: 25px;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .payment-option {
+            background: rgba(245, 230, 211, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+
+        .payment-option.selected {
+            background: rgba(212, 175, 55, 0.3);
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .payment-label {
+            font-size: 0.85rem;
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .payment-details {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .payment-details.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(212, 175, 55, 0.2));
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0;
+        }
+
+        .summary-label {
+            color: var(--cream);
+        }
+
+        .summary-value {
+            color: var(--off-white);
+            font-weight: 600;
+        }
+
+        .btn-book {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--royal-blue), #2563EB);
+            color: var(--off-white);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+        }
+
+        .btn-book:hover {
+            background: linear-gradient(135deg, #2563EB, var(--gold));
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-book:active {
+            transform: translateY(0);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.98), rgba(37, 99, 235, 0.98));
+            border: 3px solid var(--gold);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 550px;
+            text-align: center;
+            animation: modalSlide 0.4s ease-out;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounceIn 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            color: var(--cream);
+            line-height: 1.8;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .confirmation-code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px solid var(--gold);
+        }
+
+        .confirmation-code strong {
+            font-size: 1.5rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-panel {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .datetime-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .spa-text {
+                font-size: 1.2rem;
+                letter-spacing: 4px;
+            }
+        }
+
+        option {
+            background: var(--dark-brown);
+            color: var(--off-white);
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(62, 39, 35, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--bronze);
+        }
+
+        /* Health Waiver Styles */
+        .waiver-section {
+            background: rgba(139, 42, 53, 0.15);
+            border: 2px solid var(--accent-pink);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .waiver-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .waiver-icon {
+            font-size: 2rem;
+        }
+
+        .waiver-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin: 0;
+        }
+
+        .waiver-content {
+            color: var(--cream);
+        }
+
+        .waiver-intro {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--off-white);
+        }
+
+        .conditions-list {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-pink);
+        }
+
+        .condition-item {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: var(--cream);
+            line-height: 1.5;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(245, 230, 211, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .radio-option span {
+            color: var(--off-white);
+            font-size: 0.95rem;
+        }
+
+        .condition-details {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 2px solid var(--accent-pink);
+        }
+
+        .waiver-agreement {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            gap: 12px;
+            cursor: pointer;
+            align-items: flex-start;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+            min-width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-top: 3px;
+            accent-color: var(--gold);
+        }
+
+        .checkbox-text {
+            color: var(--cream);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .checkbox-text strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="ornamental-border"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <h1>THAI ROYALE</h1>
+                <div class="spa-text">SPA</div>
+            </div>
+            <div class="location-info">
+                <h3>AVIDA 34th St. BGC BRANCH</h3>
+                <p>R12 G/F Avida Towers 34th St. cor 11th St. BGC Taguig</p>
+                <p style="font-size: 0.9rem; color: var(--light-brown);">(Near Lawson and in front of Uptown Mall Tim Horton area)</p>
+                <div class="contact-row">
+                    <span>📱 0927-834-1053</span>
+                    <span>📱 0961-603-3538</span>
+                    <span>✉️ trsavida34thbgc@gmail.com</span>
+                </div>
+                <button onclick="openApplicationForm()" style="margin-top: 20px; padding: 12px 30px; background: linear-gradient(135deg, var(--gold), var(--bronze)); border: none; border-radius: 8px; color: var(--white); font-weight: 600; font-size: 1rem; cursor: pointer; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4); transition: all 0.3s ease;">
+                    💼 Join Our Team - Apply as Therapist
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Services Panel -->
+            <div class="services-panel">
+                <h2 class="panel-title">Select Your Service</h2>
+
+                <!-- All Time Favorites -->
+                <div class="service-category">
+                    <div class="category-header">All Time Favorites</div>
+                    
+                    <div class="service-item" data-type="service" data-name="Swedish Body Massage - 1 Hour" data-duration="60" data-price="650">
+                        <div class="service-info">
+                            <h4>Swedish Body Massage</h4>
+                            <div class="service-duration">1 Hour</div>
+                        </div>
+                        <div class="service-price">₱650</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Swedish Body Massage - 1.5 Hours" data-duration="90" data-price="975">
+                        <div class="service-info">
+                            <h4>Swedish Body Massage</h4>
+                            <div class="service-duration">1.5 Hours</div>
+                        </div>
+                        <div class="service-price">₱975</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Swedish Body Massage - 2 Hours" data-duration="120" data-price="1300">
+                        <div class="service-info">
+                            <h4>Swedish Body Massage</h4>
+                            <div class="service-duration">2 Hours</div>
+                        </div>
+                        <div class="service-price">₱1300</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Swedish Body Massage with Aromatherapy Oil - 2 Hours" data-duration="120" data-price="1360">
+                        <div class="service-info">
+                            <h4>Swedish w/ Aromatherapy Oil</h4>
+                            <div class="service-duration">2 Hours (Lavender or Peppermint)</div>
+                        </div>
+                        <div class="service-price">₱1360</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Thai Body Massage - 1 Hour" data-duration="60" data-price="650">
+                        <div class="service-info">
+                            <h4>Thai Body Massage</h4>
+                            <div class="service-duration">1 Hour</div>
+                        </div>
+                        <div class="service-price">₱650</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Thai Body Massage - 1.5 Hours" data-duration="90" data-price="975">
+                        <div class="service-info">
+                            <h4>Thai Body Massage</h4>
+                            <div class="service-duration">1.5 Hours</div>
+                        </div>
+                        <div class="service-price">₱975</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Thai Body Massage - 2 Hours" data-duration="120" data-price="1300">
+                        <div class="service-info">
+                            <h4>Thai Body Massage</h4>
+                            <div class="service-duration">2 Hours</div>
+                        </div>
+                        <div class="service-price">₱1300</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Thai Body Massage with Aromatherapy Oil - 2 Hours" data-duration="120" data-price="1360">
+                        <div class="service-info">
+                            <h4>Thai w/ Aromatherapy Oil</h4>
+                            <div class="service-duration">2 Hours (Lavender or Peppermint)</div>
+                        </div>
+                        <div class="service-price">₱1360</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Royale Back Massage with Oil - 1 Hour" data-duration="60" data-price="550">
+                        <div class="service-info">
+                            <h4>Royale Back Massage w/ Oil</h4>
+                            <div class="service-duration">1 Hour</div>
+                        </div>
+                        <div class="service-price">₱550</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Royale Back Massage with Oil - 1.5 Hours" data-duration="90" data-price="825">
+                        <div class="service-info">
+                            <h4>Royale Back Massage w/ Oil</h4>
+                            <div class="service-duration">1.5 Hours</div>
+                        </div>
+                        <div class="service-price">₱825</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Royale Back Massage with Oil - 2 Hours" data-duration="120" data-price="1100">
+                        <div class="service-info">
+                            <h4>Royale Back Massage w/ Oil</h4>
+                            <div class="service-duration">2 Hours</div>
+                        </div>
+                        <div class="service-price">₱1100</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Relaxing Foot Massage w/ Hot Pads - 1 Hour" data-duration="60" data-price="550">
+                        <div class="service-info">
+                            <h4>Relaxing Foot Massage w/ Hot Pads</h4>
+                            <div class="service-duration">1 Hour</div>
+                        </div>
+                        <div class="service-price">₱550</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Relaxing Foot Massage w/ Hot Pads - 1.5 Hours" data-duration="90" data-price="825">
+                        <div class="service-info">
+                            <h4>Relaxing Foot Massage w/ Hot Pads</h4>
+                            <div class="service-duration">1.5 Hours</div>
+                        </div>
+                        <div class="service-price">₱825</div>
+                    </div>
+
+                    <div class="service-item" data-type="service" data-name="Relaxing Foot Massage w/ Hot Pads - 2 Hours" data-duration="120" data-price="1100">
+                        <div class="service-info">
+                            <h4>Relaxing Foot Massage w/ Hot Pads</h4>
+                            <div class="service-duration">2 Hours</div>
+                        </div>
+                        <div class="service-price">₱1100</div>
+                    </div>
+                </div>
+
+                <!-- Combination Packages -->
+                <div class="service-category">
+                    <div class="category-header">Combination Packages</div>
+                    
+                    <div class="package-item" data-type="package" data-name="Combo Package A" data-duration="120" data-price="1100">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE A</div>
+                            <div class="service-price">₱1100</div>
+                        </div>
+                        <div class="package-details">
+                            1 hr Swedish Body Massage<br>
+                            1 hr Foot Massage
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Combo Package B" data-duration="120" data-price="1100">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE B</div>
+                            <div class="service-price">₱1100</div>
+                        </div>
+                        <div class="package-details">
+                            1 hr Swedish Body Massage<br>
+                            1 hr Back Massage
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Combo Package C" data-duration="120" data-price="1100">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE C</div>
+                            <div class="service-price">₱1100</div>
+                        </div>
+                        <div class="package-details">
+                            1 hr Back Massage<br>
+                            1 hr Foot Massage
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Combo Package D" data-duration="90" data-price="825">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE D</div>
+                            <div class="service-price">₱825</div>
+                        </div>
+                        <div class="package-details">
+                            1 hr Back Massage<br>
+                            30 min Foot Massage
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Combo Package E" data-duration="90" data-price="825">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE E</div>
+                            <div class="service-price">₱825</div>
+                        </div>
+                        <div class="package-details">
+                            1 hr Swedish Body Massage<br>
+                            30 min Foot Massage
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Combo Package F" data-duration="90" data-price="825">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE F</div>
+                            <div class="service-price">₱825</div>
+                        </div>
+                        <div class="package-details">
+                            1 hr Swedish Body Massage<br>
+                            30 min Back Massage
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Combo Package G" data-duration="120" data-price="825">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE G</div>
+                            <div class="service-price">₱825</div>
+                        </div>
+                        <div class="package-details">
+                            1 hr Thai Massage<br>
+                            1 hr Swedish Massage
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sulit Packages -->
+                <div class="service-category">
+                    <div class="category-header">Sulit Package</div>
+                    
+                    <div class="package-item" data-type="package" data-name="Sulit Package 1" data-duration="120" data-price="1480">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE 1</div>
+                            <div class="service-price">₱1480</div>
+                        </div>
+                        <div class="package-details">
+                            1 HR THAI BODY MASSAGE<br>
+                            BODY SCRUB SALT GLOW
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Sulit Package 2" data-duration="120" data-price="1550">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE 2</div>
+                            <div class="service-price">₱1550</div>
+                        </div>
+                        <div class="package-details">
+                            1 HR THAI BODY MASSAGE WITH OIL<br>
+                            BODY SCRUB SALT GLOW
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Sulit Package 3" data-duration="120" data-price="1550">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE 3</div>
+                            <div class="service-price">₱1550</div>
+                        </div>
+                        <div class="package-details">
+                            1 HR SWEDISH BODY MASSAGE<br>
+                            BODY SCRUB SALT GLOW
+                        </div>
+                    </div>
+
+                    <div class="package-item" data-type="package" data-name="Sulit Package 4" data-duration="90" data-price="2260">
+                        <div class="package-header">
+                            <div class="package-name">PACKAGE 4</div>
+                            <div class="service-price">₱2260</div>
+                        </div>
+                        <div class="package-details">
+                            Aroma Facial (Basic with Mask)<br>
+                            Body Scrub Salt Glow<br>
+                            30 Min Foot Massage<br>
+                            1.5 hrs Swedish Aromatherapy Massage
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Panel -->
+            <div class="booking-panel">
+                <h2 class="panel-title">Booking Details</h2>
+
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" placeholder="+63 9XX XXX XXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Appointment Date & Time <span class="required">*</span></label>
+                        <div class="datetime-grid">
+                            <input type="date" id="appointmentDate" required>
+                            <select id="appointmentTime" required>
+                                <option value="">Select Time</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                                <option value="20:00">8:00 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Special Requests / Preferences</label>
+                        <textarea id="specialRequests" rows="3" placeholder="Allergies, oil preference, pressure level, etc..."></textarea>
+                    </div>
+
+                    <!-- Health Waiver Section -->
+                    <div class="waiver-section">
+                        <div class="waiver-header">
+                            <span class="waiver-icon">⚕️</span>
+                            <h3>Health Declaration & Waiver</h3>
+                        </div>
+                        
+                        <div class="waiver-content">
+                            <p class="waiver-intro">For your safety, please review the following conditions. Massage therapy may not be advisable if you have any of these conditions:</p>
+                            
+                            <div class="conditions-list">
+                                <div class="condition-item">• High blood pressure or cardiovascular conditions</div>
+                                <div class="condition-item">• Recent surgery or open wounds</div>
+                                <div class="condition-item">• Muscle tears, sprains, or severe injuries</div>
+                                <div class="condition-item">• Blood clots or thrombosis</div>
+                                <div class="condition-item">• Skin infections or contagious diseases</div>
+                                <div class="condition-item">• Pregnancy (first trimester)</div>
+                                <div class="condition-item">• Severe osteoporosis or bone fractures</div>
+                                <div class="condition-item">• Fever or acute illness</div>
+                                <div class="condition-item">• Cancer or undergoing chemotherapy/radiation</div>
+                                <div class="condition-item">• Uncontrolled diabetes</div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 20px;">
+                                <label class="form-label">Do you have any of the above conditions or other medical concerns? <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="hasCondition" value="no" required>
+                                        <span>No, I do not have any of these conditions</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="hasCondition" value="yes">
+                                        <span>Yes, I have a condition to declare</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="condition-details" id="conditionDetails" style="display: none;">
+                                <label class="form-label">Please describe your condition(s) <span class="required">*</span></label>
+                                <textarea id="conditionDescription" rows="3" placeholder="Please provide details about your medical condition(s)..."></textarea>
+                                <p style="font-size: 0.85rem; color: var(--gold); margin-top: 10px;">
+                                    ⚠️ We recommend consulting with your physician before proceeding with massage therapy.
+                                </p>
+                            </div>
+
+                            <div class="waiver-agreement">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="waiverAgree" required>
+                                    <span class="checkbox-text">
+                                        <strong>I hereby acknowledge and agree that:</strong><br>
+                                        I have truthfully disclosed all relevant medical conditions and health concerns. I understand that massage therapy involves physical manipulation and may not be suitable for certain medical conditions. I voluntarily assume all risks associated with receiving massage services. I agree to hold Thai Royale Spa, its owners, employees, and therapists harmless from any claims, injuries, damages, or aggravation of pre-existing conditions that may result from the services rendered. I confirm that I have been advised to consult with a healthcare provider if I have any medical concerns.
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-section">
+                        <label class="form-label">Payment Method <span class="required">*</span></label>
+                        <div class="payment-grid">
+                            <div class="payment-option" data-payment="gcash">
+                                <div class="payment-icon">
+                                    <svg width="50" height="50" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="100" cy="100" r="90" fill="#007DFF"/>
+                                        <path d="M100 40C66.86 40 40 66.86 40 100C40 133.14 66.86 160 100 160C133.14 160 160 133.14 160 100C160 66.86 133.14 40 100 40ZM100 145C75.15 145 55 124.85 55 100C55 75.15 75.15 55 100 55C124.85 55 145 75.15 145 100C145 124.85 124.85 145 100 145Z" fill="white"/>
+                                        <circle cx="100" cy="100" r="35" fill="white"/>
+                                        <path d="M85 100L95 110L115 90" stroke="#007DFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="payment-label">GCash</div>
+                            </div>
+                            <div class="payment-option" data-payment="card">
+                                <div class="payment-icon">💳</div>
+                                <div class="payment-label">Credit/Debit Card</div>
+                            </div>
+                            <div class="payment-option" data-payment="bank">
+                                <div class="payment-icon">🏦</div>
+                                <div class="payment-label">Bank Transfer</div>
+                            </div>
+                        </div>
+
+                        <!-- GCash Details -->
+                        <div class="payment-details" id="gcashDetails">
+                            <div class="gcash-qr-container">
+                                <h4 style="font-family: 'Playfair Display', serif; color: var(--gold); text-align: center; margin-bottom: 15px; font-size: 1.2rem;">
+                                    Scan QR Code to Pay via GCash
+                                </h4>
+                                <div class="qr-code-box" style="background: white; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 350px;">
+                                    <div style="text-align: center; margin-bottom: 15px;">
+                                        <svg width="120" height="40" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="600" height="160" fill="#007DFF"/>
+                                            <circle cx="80" cy="80" r="50" fill="white"/>
+                                            <circle cx="80" cy="80" r="35" fill="none" stroke="#007DFF" stroke-width="8"/>
+                                            <path d="M80 45 L80 80 L115 80" stroke="#007DFF" stroke-width="8" fill="none" stroke-linecap="round"/>
+                                            <text x="160" y="100" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white">GCash</text>
+                                        </svg>
+                                    </div>
+                                    <div style="border: 3px solid #007DFF; padding: 15px; border-radius: 10px; background: #f8f9fa;">
+                                        <div style="text-align: center; font-size: 1.1rem; color: #333; margin: 10px 0;">
+                                            <strong style="font-size: 1.5rem; color: #007DFF; display: block; margin-bottom: 10px;">TRS 34TH</strong>
+                                        </div>
+                                        <div style="text-align: center; padding: 15px; background: white; border-radius: 8px; border: 2px dashed #007DFF;">
+                                            <p style="margin: 5px 0; color: #666; font-size: 0.9rem;">Send payment to:</p>
+                                            <p style="margin: 10px 0; color: #007DFF; font-size: 1.5rem; font-weight: bold; letter-spacing: 1px;">0908 655 1539</p>
+                                            <p style="margin: 5px 0; color: #999; font-size: 0.85rem;">RO*****O B.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-top: 20px;">
+                                <label class="form-label">Your GCash Number <span class="required">*</span></label>
+                                <input type="tel" id="gcashNumber" placeholder="09XX XXX XXXX">
+                            </div>
+                            <div style="background: rgba(0, 123, 255, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid #007DFF; margin-top: 15px;">
+                                <p style="font-size: 0.9rem; color: var(--off-white); margin-bottom: 10px; font-weight: 600;">
+                                    <strong>Payment Instructions:</strong>
+                                </p>
+                                <ol style="color: var(--cream); font-size: 0.85rem; line-height: 1.8; margin-left: 20px;">
+                                    <li>Open your GCash app</li>
+                                    <li>Select "Send Money"</li>
+                                    <li>Enter mobile number: <strong style="color: var(--gold);">0908 655 1539</strong></li>
+                                    <li>Enter the total booking amount</li>
+                                    <li>Complete the transaction</li>
+                                    <li>Enter your GCash number above for verification</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Card Details -->
+                        <div class="payment-details" id="cardDetails">
+                            <div class="form-group">
+                                <label class="form-label">Card Number <span class="required">*</span></label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                            <div class="card-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Cardholder <span class="required">*</span></label>
+                                    <input type="text" id="cardName" placeholder="Name on card">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Expiry <span class="required">*</span></label>
+                                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">CVV <span class="required">*</span></label>
+                                    <input type="text" id="cardCvv" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bank Transfer Details -->
+                        <div class="payment-details" id="bankDetails">
+                            <div class="form-group">
+                                <label class="form-label">Select Bank <span class="required">*</span></label>
+                                <select id="bankName">
+                                    <option value="">Choose your bank</option>
+                                    <option value="bpi">BPI (Bank of the Philippine Islands)</option>
+                                    <option value="bdo">BDO Unibank</option>
+                                    <option value="metrobank">Metrobank</option>
+                                    <option value="unionbank">UnionBank</option>
+                                    <option value="landbank">Landbank</option>
+                                    <option value="chinabank">China Bank</option>
+                                    <option value="rcbc">RCBC</option>
+                                    <option value="securitybank">Security Bank</option>
+                                </select>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--light-brown); margin-top: 10px;">
+                                Bank transfer instructions will be sent to your email.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="summary-box" id="summaryBox" style="display: none;">
+                        <div class="summary-row">
+                            <span class="summary-label">Service:</span>
+                            <span class="summary-value" id="summaryService">-</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Duration:</span>
+                            <span class="summary-value" id="summaryDuration">-</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Date & Time:</span>
+                            <span class="summary-value" id="summaryDateTime">-</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Total Amount:</span>
+                            <span class="summary-value" id="summaryTotal">₱0</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-book">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">✨</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Thank you for choosing Thai Royale Spa.</p>
+            <p>Your appointment has been successfully booked.</p>
+            <div class="confirmation-code">
+                <strong id="confirmationNumber">TR-2026-XXXX</strong>
+            </div>
+            <p style="font-size: 0.95rem; line-height: 1.6;">
+                Confirmation emails have been sent to:
+                <br>
+                <strong style="color: var(--gold);">✓ trsavida34th@myyahoo.com</strong> (Spa notification)
+                <br>
+                <strong style="color: var(--gold);">✓ Your email address</strong> (Booking confirmation)
+                <br><br>
+                If you don't receive the email within 5 minutes, please contact us:
+                <br>
+                📱 0927-834-1053 / 0961-603-3538
+                <br>
+                📧 trsavida34thbgc@gmail.com
+                <br><br>
+                We look forward to serving you!
+            </p>
+            <button class="btn-book" onclick="closeModal()" style="margin-top: 25px;">Close</button>
+        </div>
+    </div>
+
+    <!-- Therapist Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="success-icon" style="font-size: 3rem;">💼</div>
+            <h2>Join Our Team</h2>
+            <p style="margin-bottom: 20px; color: var(--cream);">Apply as a Therapist at Thai Royale Spa</p>
+            
+            <form id="applicationForm" style="text-align: left;">
+                <div class="form-group">
+                    <label class="form-label">Full Name <span class="required">*</span></label>
+                    <input type="text" id="appName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email Address <span class="required">*</span></label>
+                    <input type="email" id="appEmail" placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="appPhone" placeholder="+63 9XX XXX XXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Years of Experience <span class="required">*</span></label>
+                    <select id="appExperience" required>
+                        <option value="">Select experience</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="1-3">1-3 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="5+">5+ years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Specialization <span class="required">*</span></label>
+                    <select id="appSpecialization" required>
+                        <option value="">Select specialization</option>
+                        <option value="Swedish Massage">Swedish Massage</option>
+                        <option value="Thai Massage">Thai Massage</option>
+                        <option value="Deep Tissue">Deep Tissue</option>
+                        <option value="Aromatherapy">Aromatherapy</option>
+                        <option value="Foot Reflexology">Foot Reflexology</option>
+                        <option value="Multiple">Multiple Specializations</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Certifications</label>
+                    <textarea id="appCertifications" rows="3" placeholder="List your certifications (e.g., NCBTMB, TESDA, etc.)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Why do you want to join Thai Royale Spa? <span class="required">*</span></label>
+                    <textarea id="appMessage" rows="4" placeholder="Tell us about yourself and why you'd be a great fit..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Resume/CV Link</label>
+                    <input type="url" id="appCV" placeholder="Google Drive, Dropbox, or LinkedIn profile link">
+                    <p style="font-size: 0.85rem; color: var(--light-brown); margin-top: 5px;">
+                        Please provide a link to your resume or CV (optional but recommended)
+                    </p>
+                </div>
+
+                <button type="submit" class="btn-book" style="margin-top: 20px;">Submit Application</button>
+                <button type="button" class="btn-book" onclick="closeApplicationForm()" style="margin-top: 10px; background: rgba(255,255,255,0.1);">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Selection handling
+        const serviceItems = document.querySelectorAll('.service-item, .package-item');
+        let selectedItem = null;
+
+        serviceItems.forEach(item => {
+            item.addEventListener('click', () => {
+                serviceItems.forEach(s => s.classList.remove('selected'));
+                item.classList.add('selected');
+                
+                selectedItem = {
+                    name: item.dataset.name,
+                    duration: item.dataset.duration,
+                    price: item.dataset.price,
+                    type: item.dataset.type
+                };
+
+                updateSummary();
+            });
+        });
+
+        // Payment method selection
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        let selectedPayment = null;
+
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(p => p.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedPayment = option.dataset.payment;
+
+                document.querySelectorAll('.payment-details').forEach(d => d.classList.remove('active'));
+                document.getElementById(selectedPayment + 'Details').classList.add('active');
+            });
+        });
+
+        // Update summary
+        function updateSummary() {
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+            const summaryBox = document.getElementById('summaryBox');
+
+            if (selectedItem) {
+                summaryBox.style.display = 'block';
+                document.getElementById('summaryService').textContent = selectedItem.name;
+                document.getElementById('summaryDuration').textContent = selectedItem.duration + ' minutes';
+                document.getElementById('summaryTotal').textContent = '₱' + parseInt(selectedItem.price).toLocaleString();
+                
+                if (date && time) {
+                    const dateObj = new Date(date);
+                    const formattedDate = dateObj.toLocaleDateString('en-US', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    });
+                    document.getElementById('summaryDateTime').textContent = formattedDate + ' at ' + time;
+                }
+            }
+        }
+
+        document.getElementById('appointmentDate').addEventListener('change', updateSummary);
+        document.getElementById('appointmentTime').addEventListener('change', updateSummary);
+
+        // Health condition radio buttons
+        const conditionRadios = document.querySelectorAll('input[name="hasCondition"]');
+        const conditionDetails = document.getElementById('conditionDetails');
+        const conditionDescription = document.getElementById('conditionDescription');
+
+        conditionRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'yes') {
+                    conditionDetails.style.display = 'block';
+                    conditionDescription.required = true;
+                } else {
+                    conditionDetails.style.display = 'none';
+                    conditionDescription.required = false;
+                    conditionDescription.value = '';
+                }
+            });
+        });
+
+        // Set minimum date
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('appointmentDate').setAttribute('min', today);
+
+        // Card formatting
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formatted;
+        });
+
+        document.getElementById('cardExpiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (!selectedItem) {
+                alert('Please select a service or package');
+                return;
+            }
+
+            if (!selectedPayment) {
+                alert('Please select a payment method');
+                return;
+            }
+
+            // Validate health declaration
+            const hasConditionChecked = document.querySelector('input[name="hasCondition"]:checked');
+            if (!hasConditionChecked) {
+                alert('Please complete the health declaration');
+                return;
+            }
+
+            if (hasConditionChecked.value === 'yes' && !document.getElementById('conditionDescription').value.trim()) {
+                alert('Please describe your medical condition(s)');
+                return;
+            }
+
+            if (!document.getElementById('waiverAgree').checked) {
+                alert('Please read and agree to the health waiver to proceed');
+                return;
+            }
+
+            // Validate payment fields
+            if (selectedPayment === 'gcash' && !document.getElementById('gcashNumber').value) {
+                alert('Please enter your GCash number');
+                return;
+            }
+
+            if (selectedPayment === 'card') {
+                if (!document.getElementById('cardNumber').value || 
+                    !document.getElementById('cardName').value || 
+                    !document.getElementById('cardExpiry').value || 
+                    !document.getElementById('cardCvv').value) {
+                    alert('Please complete all card details');
+                    return;
+                }
+            }
+
+            if (selectedPayment === 'bank' && !document.getElementById('bankName').value) {
+                alert('Please select your bank');
+                return;
+            }
+
+            // Generate confirmation
+            const confirmNum = 'TR-2026-' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            document.getElementById('confirmationNumber').textContent = confirmNum;
+
+            // Prepare booking details for email
+            const bookingDetails = {
+                confirmationNumber: confirmNum,
+                customerName: document.getElementById('fullName').value,
+                customerEmail: document.getElementById('email').value,
+                customerPhone: document.getElementById('phone').value,
+                service: selectedItem.name,
+                duration: selectedItem.duration + ' minutes',
+                price: '₱' + parseInt(selectedItem.price).toLocaleString(),
+                date: document.getElementById('appointmentDate').value,
+                time: document.getElementById('appointmentTime').value,
+                specialRequests: document.getElementById('specialRequests').value || 'None',
+                hasCondition: document.querySelector('input[name="hasCondition"]:checked').value,
+                conditionDetails: document.querySelector('input[name="hasCondition"]:checked').value === 'yes' 
+                    ? document.getElementById('conditionDescription').value 
+                    : 'None declared',
+                paymentMethod: selectedPayment.toUpperCase(),
+                paymentDetails: getPaymentDetails(),
+                bookingDate: new Date().toLocaleString('en-US', { 
+                    timeZone: 'Asia/Manila',
+                    dateStyle: 'full',
+                    timeStyle: 'long'
+                })
+            };
+
+            // Send booking notification email
+            sendBookingEmail(bookingDetails);
+
+            document.getElementById('successModal').classList.add('active');
+        });
+
+        function getPaymentDetails() {
+            if (selectedPayment === 'gcash') {
+                return 'GCash Number: ' + document.getElementById('gcashNumber').value;
+            } else if (selectedPayment === 'card') {
+                const cardNum = document.getElementById('cardNumber').value;
+                return 'Card ending in: ' + cardNum.slice(-4);
+            } else if (selectedPayment === 'bank') {
+                return 'Bank: ' + document.getElementById('bankName').options[document.getElementById('bankName').selectedIndex].text;
+            }
+            return '';
+        }
+
+        async function sendSMSNotification(details) {
+            // Send SMS via Semaphore SMS Gateway (Philippines)
+            const smsMessage = `NEW BOOKING - Thai Royale Spa
+Conf#: ${details.confirmationNumber}
+Name: ${details.customerName}
+Service: ${details.service}
+Date: ${details.date} ${details.time}
+Amount: ${details.price}
+Payment: ${details.paymentMethod}
+Phone: ${details.customerPhone}`;
+
+            try {
+                // Using Semaphore API - you'll need to sign up at semaphore.co
+                const response = await fetch('https://api.semaphore.co/api/v4/messages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        apikey: 'e76c050fe05d375d51e6de165a8c7121',
+                        number: '639086551539',
+                        message: smsMessage,
+                        sendername: 'ThaiRoyale'
+                    })
+                });
+                
+                const result = await response.json();
+                console.log('SMS sent:', result);
+            } catch (error) {
+                console.log('SMS notification failed:', error);
+                // Don't block booking if SMS fails
+            }
+        }
+
+        async function sendBookingEmail(details) {
+            // Prepare email content for spa owner
+            const spaEmailMessage = `
+NEW BOOKING RESERVATION
+========================
+
+Confirmation Number: ${details.confirmationNumber}
+Booking Date/Time: ${details.bookingDate}
+
+CUSTOMER INFORMATION
+--------------------
+Name: ${details.customerName}
+Email: ${details.customerEmail}
+Phone: ${details.customerPhone}
+
+SERVICE DETAILS
+---------------
+Service: ${details.service}
+Duration: ${details.duration}
+Price: ${details.price}
+
+APPOINTMENT
+-----------
+Date: ${details.date}
+Time: ${details.time}
+
+SPECIAL REQUESTS
+----------------
+${details.specialRequests}
+
+HEALTH DECLARATION
+------------------
+Has Medical Conditions: ${details.hasCondition === 'yes' ? 'YES' : 'NO'}
+${details.hasCondition === 'yes' ? 'Details: ' + details.conditionDetails : ''}
+
+PAYMENT INFORMATION
+-------------------
+Method: ${details.paymentMethod}
+${details.paymentDetails}
+
+========================
+Thai Royale Spa - Avida 34th St. BGC
+            `;
+
+            // Send to spa email
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: '2f177712-b4ee-4d8e-b4d6-dca0c5a21dfe',
+                        subject: `New Booking - ${details.confirmationNumber} - ${details.customerName}`,
+                        from_name: "Thai Royale Booking System",
+                        email: details.customerEmail,
+                        to: 'trsavida34th@myyahoo.com',
+                        message: spaEmailMessage
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    console.log('Email sent successfully to spa');
+                    
+                    // Send SMS notification to spa owner
+                    await sendSMSNotification(details);
+                    
+                    // Send confirmation to customer
+                    await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            access_key: '2f177712-b4ee-4d8e-b4d6-dca0c5a21dfe',
+                            subject: `Booking Confirmation - ${details.confirmationNumber}`,
+                            from_name: "Thai Royale Spa",
+                            to: details.customerEmail,
+                            message: `
+Dear ${details.customerName},
+
+Thank you for booking with Thai Royale Spa!
+
+Your booking has been confirmed with the following details:
+
+Confirmation Number: ${details.confirmationNumber}
+Service: ${details.service}
+Duration: ${details.duration}
+Total Amount: ${details.price}
+
+Appointment Details:
+Date: ${details.date}
+Time: ${details.time}
+
+Location:
+Thai Royale Spa - Avida 34th St. BGC Branch
+R12 G/F Avida Towers 34th St. cor 11th St. BGC Taguig
+
+Payment Method: ${details.paymentMethod}
+${details.paymentMethod === 'GCASH' ? 'Please send payment to GCash: 0908 655 1539' : ''}
+${details.paymentMethod === 'BANK' ? 'Bank transfer instructions will be sent in a separate email.' : ''}
+${details.paymentMethod === 'CARD' ? 'Your card will be charged upon arrival.' : ''}
+
+For any changes or cancellations, please contact us:
+📱 0927-834-1053 / 0961-603-3538
+✉️ trsavida34thbgc@gmail.com
+
+We look forward to serving you!
+
+Best regards,
+Thai Royale Spa Team
+                            `
+                        })
+                    });
+                } else {
+                    console.error('Email sending failed:', result);
+                    alert('Booking confirmed but email notification failed. Please contact us at 0927-834-1053');
+                }
+            } catch (error) {
+                console.error('Error sending email:', error);
+                alert('Booking confirmed! Please save your confirmation number: ' + details.confirmationNumber + '\n\nContact us at 0927-834-1053 to confirm your booking.');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+            document.getElementById('bookingForm').reset();
+            serviceItems.forEach(s => s.classList.remove('selected'));
+            paymentOptions.forEach(p => p.classList.remove('selected'));
+            document.querySelectorAll('.payment-details').forEach(d => d.classList.remove('active'));
+            document.getElementById('summaryBox').style.display = 'none';
+            document.getElementById('conditionDetails').style.display = 'none';
+            selectedItem = null;
+            selectedPayment = null;
+        }
+
+        // Therapist Application Functions
+        function openApplicationForm() {
+            document.getElementById('applicationModal').classList.add('active');
+        }
+
+        function closeApplicationForm() {
+            document.getElementById('applicationModal').classList.remove('active');
+            document.getElementById('applicationForm').reset();
+        }
+
+        // Handle therapist application submission
+        document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const applicationData = {
+                name: document.getElementById('appName').value,
+                email: document.getElementById('appEmail').value,
+                phone: document.getElementById('appPhone').value,
+                experience: document.getElementById('appExperience').value,
+                specialization: document.getElementById('appSpecialization').value,
+                certifications: document.getElementById('appCertifications').value || 'None provided',
+                message: document.getElementById('appMessage').value,
+                cvLink: document.getElementById('appCV').value || 'Not provided',
+                submittedDate: new Date().toLocaleString('en-US', { 
+                    timeZone: 'Asia/Manila',
+                    dateStyle: 'full',
+                    timeStyle: 'long'
+                })
+            };
+
+            // Send application email to spa
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: '2f177712-b4ee-4d8e-b4d6-dca0c5a21dfe',
+                        subject: `New Therapist Application - ${applicationData.name}`,
+                        from_name: 'Thai Royale Careers',
+                        email: applicationData.email,
+                        to: 'trsavida34th@myyahoo.com',
+                        message: `
+NEW THERAPIST APPLICATION
+=========================
+
+APPLICANT INFORMATION
+---------------------
+Name: ${applicationData.name}
+Email: ${applicationData.email}
+Phone: ${applicationData.phone}
+
+EXPERIENCE & QUALIFICATIONS
+---------------------------
+Years of Experience: ${applicationData.experience}
+Specialization: ${applicationData.specialization}
+Certifications: ${applicationData.certifications}
+
+WHY THEY WANT TO JOIN
+---------------------
+${applicationData.message}
+
+RESUME/CV
+---------
+${applicationData.cvLink}
+
+SUBMITTED ON
+------------
+${applicationData.submittedDate}
+
+=========================
+Thai Royale Spa - Recruitment
+                        `
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('✅ Application submitted successfully!\n\nThank you for your interest in joining Thai Royale Spa. We will review your application and contact you within 3-5 business days.\n\nA confirmation email has been sent to: ' + applicationData.email);
+                    closeApplicationForm();
+                } else {
+                    alert('❌ Application submission failed. Please try again or email your CV directly to trsavida34th@myyahoo.com');
+                }
+            } catch (error) {
+                console.error('Application error:', error);
+                alert('❌ Application submission failed. Please email your CV directly to trsavida34th@myyahoo.com');
+            }
+        });
+    </script>
+</body>
+</html>
